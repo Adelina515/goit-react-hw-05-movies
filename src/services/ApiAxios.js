@@ -26,14 +26,14 @@ export const fetchMoviesDetails = async searchWordId => {
 
 export const fetchMoviesCredits = async searchWordId => {
   const response = await axios.get(
-    `${BASE_URL}movie/${searchWordId}/credits?api_key=${API_KEY}language=en-US`
+    `${BASE_URL}movie/${searchWordId}/credits?api_key=${API_KEY}&language=en-US`
   );
   return response.data;
 };
 
 export const fetchMoviesReviews = async searchWordId => {
   const response = await axios.get(
-    `${BASE_URL}movie/${searchWordId}/reviews?api_key=${API_KEY}language=en-US&page=1`
+    `${BASE_URL}movie/${searchWordId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
   );
   return response.data;
 };

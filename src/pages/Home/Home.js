@@ -1,5 +1,5 @@
 import Loader from 'components/loader/Loader';
-import ListFilms from 'pages/ListFilms/ListFilms';
+import ListFilms from 'components/ListFilms/ListFilms';
 import React, { useEffect, useState } from 'react';
 import { fetchMovies } from 'services/ApiAxios';
 

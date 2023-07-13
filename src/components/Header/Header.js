@@ -1,13 +1,15 @@
 import Loader from 'components/loader/Loader';
 import { Suspense } from 'react';
-import { Outlet, NavLink, Link } from 'react-router-dom';
+import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import style from 'components/Header/Header.module.css';
 
 const Header = () => {
+  const location = useLocation();
+  const active = location.pathname === '/' ? 'active' : '';
   return (
     <div>
       <nav className={style.nav}>
-        <NavLink className={Link} to="/" end>
+        <NavLink className={`${style.link} ${style[active]} `} to="/" end>
           Home
         </NavLink>
         <NavLink to="/movies">Movies</NavLink>

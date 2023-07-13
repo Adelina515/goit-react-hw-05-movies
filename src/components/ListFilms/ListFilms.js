@@ -13,6 +13,6 @@ const ListFilms = ({ films }) => {
       ))}
     </ul>
   );
-  console.log(films);
 };
+
 export default ListFilms;

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Form = ({ searchFilmsWord }) => {
+const Form = ({ searchWord }) => {
   const [search, setSearch] = useState('');
   const handleSubmit = e => {
     e.preventDefault();
-    searchFilmsWord(search.toLowerCase());
+    searchWord(search.toLowerCase());
+    setSearch('');
   };
   const handleInput = e => {
     setSearch(e.target.value);
@@ -23,6 +24,6 @@ const Form = ({ searchFilmsWord }) => {
   );
 };
 Form.propTypes = {
-  searchMovies: PropTypes.func.isRequired,
+  searchWord: PropTypes.func.isRequired,
 };
 export default Form;

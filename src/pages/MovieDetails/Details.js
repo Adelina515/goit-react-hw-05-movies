@@ -1,10 +1,10 @@
 import Loader from 'components/loader/Loader';
-import { useEffect, useState } from 'react';
-import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import { fetchMoviesDetails } from 'services/ApiAxios';
 
 const Details = () => {
-  const [movieId] = useParams();
+  const { movieId } = useParams();
   const [loading, setLoading] = useState(false);
   const [moveDetails, setMoveDetails] = useState(null);
   const location = useLocation();
@@ -36,38 +36,51 @@ const Details = () => {
     popularity,
     overview,
     poster_path,
-    genre_ids,
-    title,
+    genres,
   } = moveDetails;
+  const goBack = location?.state?.from ?? '/';
+
+  const genresFilm = genres.map(genre => genre.name).join(', ');
 
   return (
     <>
-      <link to={location.state?.from ?? '/'}>
-        <button type="button">Go back</button>
-      </link>
+      <Link to={goBack}>Go back</Link>
+
       {loading && <Loader />}
       {moveDetails && (
         <div>
-          <img width="300px" alt="name"></img>
+          <img
+            width="300px"
+            alt="name"
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : 'https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg'
+            }
+          />
           <div>
-            <h1>name</h1>
-            <p>User score:</p>
+            <h1>
+              {original_title} ({release_date})
+            </h1>
+            <p>User score: {popularity}</p>
             <h2>Overview</h2>
-            <p>text</p>
+            <p>{overview}</p>
             <h2>Genres</h2>
-            <p>text</p>
+            <p>{genresFilm}</p>
           </div>
           <div>
             <h3>Additional information</h3>
             <ul>
               <li>
-                <link to="cast">Cast</link>
+                <Link to={`/movies/${movieId}/cast`}>Cast</Link>
               </li>
               <li>
-                <link to="reviews">Reviews</link>
+                <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
               </li>
             </ul>
-            <Outlet />
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
           </div>
         </div>
       )}
