@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ListFilms = ({ films }) => {
   const location = useLocation();
@@ -14,5 +15,7 @@ const ListFilms = ({ films }) => {
     </ul>
   );
 };
-
+ListFilms.propTypes = {
+  films: PropTypes.array.isRequired,
+};
 export default ListFilms;

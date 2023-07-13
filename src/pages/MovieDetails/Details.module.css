@@ -1,0 +1,34 @@
+.detBtn {
+  position: fixed;
+  display: block;
+  width: 100px;
+  padding: 6px 10px;
+  background-color: rgb(115, 182, 182);
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.detBtn:hover,
+detBtn:focus {
+  background-color: rgb(24, 57, 57);
+}
+.detContainer {
+  padding-top: 35px;
+  padding-left: 5px;
+}
+.detWrapper {
+  display: flex;
+  padding-top: 35px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+.detImg {
+  margin-right: 15px;
+}
+.detWrapperInfo {
+  padding: 10px;
+}
+.detWrapperList {
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}

@@ -7,7 +7,7 @@ const Header = () => {
   const location = useLocation();
   const active = location.pathname === '/' ? 'active' : '';
   return (
-    <div>
+    <div className={style.container}>
       <nav className={style.nav}>
         <NavLink className={`${style.link} ${style[active]} `} to="/" end>
           Home

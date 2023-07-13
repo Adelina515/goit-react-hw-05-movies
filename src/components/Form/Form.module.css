@@ -1,0 +1,9 @@
+.formBtn {
+  margin-left: 15px;
+  background-color: rgb(115, 182, 182);
+  border-radius: 4px;
+}
+.formBtn:hover,
+formBtn:focus {
+  background-color: rgb(24, 57, 57);
+}

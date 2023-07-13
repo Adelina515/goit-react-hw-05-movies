@@ -1,10 +1,18 @@
 .nav {
+  position: fixed;
   display: flex;
   justify-content: center;
+  width: 100%;
+  background-color: aliceblue;
+  padding-left: 1px;
+  padding-right: 16px;
+  height: 30px;
+  border-bottom: 1px solid;
 }
 
 .link {
   color: black;
+  margin-right: 30px;
 }
 
 .active {

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Form from 'components/Form/Form';
 import { useSearchParams } from 'react-router-dom';
 import { fetchSearchMovies } from 'services/ApiAxios';
+import style from 'pages/Movies/Movies.module.css';
 
 const Movies = () => {
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,7 @@ const Movies = () => {
   }, [searchParams]);
 
   return (
-    <div>
+    <div className={style.container}>
       <Form searchWord={handleSubmit} />
       {loading && <Loader />}
       {nothing && <h2>Please, input film</h2>}

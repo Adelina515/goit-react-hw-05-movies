@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import style from 'components/Form/Form.module.css';
 
 const Form = ({ searchWord }) => {
   const [search, setSearch] = useState('');
@@ -19,7 +20,9 @@ const Form = ({ searchWord }) => {
         value={search}
         onChange={handleInput}
       ></input>
-      <button type="submit">search</button>
+      <button type="submit" className={style.formBtn}>
+        search
+      </button>
     </form>
   );
 };
